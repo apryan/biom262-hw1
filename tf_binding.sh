@@ -19,8 +19,10 @@ echo '--- Random 10 lines ---'
 awk -v seed=907 'BEGIN{srand(seed);}{ if (rand() < 0.5 ) {print $0}}'  tf.nfkb.bed | head
 echo '--- Last 10 lines ---'
 tail tf.nfkb.bed
-awk '$3 == "transcript" {print $0 > "gencode.v19.annotation.chr22.transcript.gtf"}' gencode.v19.annotation.chr22.gtf
 
+
+# Exercise 2 Answer
+awk -F "\t" '{ if ($3 =="transcript") {print;}}' gencode.v19.annotation.chr22.gtf >  gencode.v19.annotation.chr22.transcript.gtf
 wc -l gencode.v19.annotation.chr22.transcript.gtf
 echo '--- First 10 lines ---'
 head gencode.v19.annotation.chr22.transcript.gtf
