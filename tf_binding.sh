@@ -64,4 +64,6 @@ grep  "chr" gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta | wc -l
 grep -Ff nfkbcanon gencode.v19.annotation.chr22.transcript.promoter.nfkb.fasta | wc -l
 # you see that about half of them are on both lists
 echo "Hello I am a message in standard out (stdout)"
+
+# add line to go to error output 
 echo "Hello I am a message in standard error (stderr)" >&2
