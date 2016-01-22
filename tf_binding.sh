@@ -9,7 +9,9 @@
 #PBS -M apryan@ucsd.edu
 #PBS -m abe
 cd ~/code/biom262-2016/weeks/week01/data
-awk '$4 == "NFKB" {print $0 > "tf.nfkb.bed"}' tf.bed
+
+# Exercise 1 Answer
+awk -F "\t" '{ if ($4 == "NFKB") {print;}}' tf.bed > tf.nfkb.bed
 wc -l tf.nfkb.bed
 echo '--- First 10 lines ---'
 head tf.nfkb.bed
